@@ -6,11 +6,11 @@ import AnyChart from 'anychart-react'
 import anychart from 'anychart'
 
 let stage = anychart.graphics.create();
-let chart1 = anychart.line([1, 2, 3]);
+let chart1 = anychart.line([1, 2, 3, 4, 5, 6, 7, 8, 9]);
 chart1.bounds(0, 0, '100%', '50%');
 let chart2 = anychart.column();
-chart2.column([3, 2, 1]);
-chart2.line([3, 5, 6]);
+chart2.column([1, 2, 3, 4, 5, 6, 7, 8, 9]);
+chart2.line([100, 4, 420, 322, 617, 122, 433, 314, 653, 1]);
 chart2.bounds(0, '50%', '100%', '50%');
 
 
@@ -32,7 +32,6 @@ function App() {
         j--;
       }
       contador = i++;
-      console.log('contador',contador)
       arr[ j ] = temp;
     }
     setCount(contador)
@@ -44,16 +43,12 @@ function App() {
     const result = mergeSort(arrOrginal);
     setResultArray(result)
   }, []);
-
-  
-
-console.log('result',resultArray)
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-        lista original
+        Lista original
         <br/>
         <div style={{ display: "flex"}}>
         {arrOrginal.map(itemOld => (
@@ -66,7 +61,7 @@ console.log('result',resultArray)
         </p>
     
         <p>
-        lista organizada
+        Lista organizada
         </p>
         <div style={{ display: "flex"}}>
         {resultArray.map(item => (
@@ -81,12 +76,14 @@ console.log('result',resultArray)
         <p>
         {count}
         </p>
-        <AnyChart
-          instance={stage}
-          width={800}
-          height={600}
-          charts={[chart1, chart2]}
-        />
+        
+          <AnyChart
+            instance={stage}
+            width={800}
+            height={600}
+            charts={[chart2]}
+          />
+
       </header>
     </div>
   );
